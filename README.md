@@ -10,25 +10,33 @@ FP = 3507 TN = 13597
 
 Classification Report:
 
-                   pre       rec       spe        f1       geo       iba       sup
+pre       rec       spe        f1       geo       iba       sup
 
-  high_risk       0.02      0.75      0.79      0.04      0.77      0.60       101
+high_risk       0.02      0.75      0.79      0.04      0.77      0.60       101
   
-   low_risk       1.00      0.79      0.75      0.89      0.77      0.60     17104
+low_risk       1.00      0.79      0.75      0.89      0.77      0.60     17104
 
 avg / total       0.99      0.79      0.75      0.88      0.77      0.60     17205
 
 
-## - SMOTE
-Note: I normalized the dataset
+## - SMOTE Oversampling
 
-Balanced Accuracy Score: 0.772
+Balanced Accuracy Score: 0.767
 
 Confusion Matrix:
-![SMOTE](https://github.com/Calistic/Machine-Learning/blob/master/pics/SMOTE-cm.PNG)
+TP = 74   FN = 27
+FP = 3409 TN = 13695
+
 
 Classification Report:
-![SMOTE](https://github.com/Calistic/Machine-Learning/blob/master/pics/SMOTE-cr.PNG)
+
+pre       rec       spe        f1       geo       iba       sup
+
+high_risk       0.02      0.73      0.80      0.04      0.77      0.58       101
+
+low_risk       1.00      0.80      0.73      0.89      0.77      0.59     17104
+
+avg / total       0.99      0.80      0.73      0.88      0.77      0.59     17205
 
 # Undersample
 ## - Undersampling
