@@ -10,7 +10,7 @@ FP = 3507 TN = 13597
 
 Classification Report:
 
-pre       rec       spe        f1       geo       iba       sup
+   pre       rec       spe        f1       geo       iba       sup
 
 high_risk       0.02      0.75      0.79      0.04      0.77      0.60       101
   
@@ -30,7 +30,7 @@ FP = 3409 TN = 13695
 
 Classification Report:
 
-pre       rec       spe        f1       geo       iba       sup
+   pre       rec       spe        f1       geo       iba       sup
 
 high_risk       0.02      0.73      0.80      0.04      0.77      0.58       101
 
@@ -38,35 +38,47 @@ low_risk       1.00      0.80      0.73      0.89      0.77      0.59     17104
 
 avg / total       0.99      0.80      0.73      0.88      0.77      0.59     17205
 
-# Undersample
-## - Undersampling
-Note: I normalized the dataset
+# - Undersampling
 
-Balanced Accuracy Score: 0.754
+Balanced Accuracy Score: 0.767
 
 Confusion Matrix:
-![Undersample](https://github.com/Calistic/Machine-Learning/blob/master/pics/Under-cm.PNG)
+TP = 74   FN = 27
+FP = 3409 TN = 13695
 
 Classification Report:
-![Undersample](https://github.com/Calistic/Machine-Learning/blob/master/pics/Under-cr.PNG)
+          
+   pre       rec       spe        f1       geo       iba       sup
+
+high_risk       0.02      0.73      0.80      0.04      0.77      0.58       101
+
+low_risk       1.00      0.80      0.73      0.89      0.77      0.59     17104
+
+avg / total       0.99      0.80      0.73      0.88      0.77      0.59     17205
 
 # Combination
 ## - SMOTEENN
-Balanced Accuracy Score: 0.654
+Balanced Accuracy Score: 0.647
 
 Confusion Matrix:
-![Combination](https://github.com/Calistic/Machine-Learning/blob/master/pics/SMOTTEEN-cm.PNG)
+TP = 73   FN = 28
+FP = 7342 TN = 9762
 
 Classification Report:
-![Combination](https://github.com/Calistic/Machine-Learning/blob/master/pics/SMOTTEEN-cr.PNG)
+ 
+   pre       rec       spe        f1       geo       iba       sup
+
+high_risk       0.01      0.72      0.57      0.02      0.64      0.42       101
+
+low_risk       1.00      0.57      0.72      0.73      0.64      0.41     17104
+
+avg / total       0.99      0.57      0.72      0.72      0.64      0.41     17205
 
 # Final Recommendation
-Ideally our algorithm is 100% accurate, but we aren't going to achieve this today. The next best result we can hope for is to minimize the number of false negatives (incorrectly classifying loans as low risk loans).
+The ideal algorithm is 100% accurate, but we could not use model to achieve for this loan project. In this analysis, we can minimize the number of false negatives to improve the accuracy, and it will help the company to track low risk loans quickly. 
 
-Achieving this would enable the company to fast track Low Risk loans. All High-Risk positives (True and False) could then be manually screened by a human.
+The Random Oversampler method has the highest accuarcy 77.4%, which also has the lowest proportion of True Positives to False Negatives. However, the number of False Positives is very high, 3507. In this method, we tried to fast track loan approval by approving all negatives, but we will approve 97.9% of the High-Risk loans at the same time. It is not safe for the company to use this method. 
 
-The method with the lowest proportion of True Positive to False Negatives was the Random Oversampler. However, the number of False Negatives is very high, 3,507 of 3,583 low_risk entries. If we tried to fast track loan approval by approving all negatives (low_risk), we would unintentionally approve 97.9% (3507/3583) of the High-Risk loans. Not good!
+We also try to fast track loan rejections by rejecting high_risk loans. However, this also provides little benefit as the percent of the high_risk is low as 0.6%. Using the method, we can not save manhours.
 
-Alternatively, we could try to fast track loan rejections by rejecting every positive (high_risk). However, this also provides little benefit as the percent of positives (high_risk) is low, 101 of 17,104 (0.6%). We just wouldn't save many manhours.
-
-I recommend not using any of these tools at least until the number of False Negatives is significantly reduced.
+I don't recommend using any of these methods until we can find a way to reduce the number of False Negatives.
