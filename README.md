@@ -9,9 +9,11 @@ TP = 76   FN = 25
 FP = 3507 TN = 13597
 
 Classification Report:
+
                    pre       rec       spe        f1       geo       iba       sup
 
   high_risk       0.02      0.75      0.79      0.04      0.77      0.60       101
+  
    low_risk       1.00      0.79      0.75      0.89      0.77      0.60     17104
 
 avg / total       0.99      0.79      0.75      0.88      0.77      0.60     17205
